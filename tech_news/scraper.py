@@ -1,3 +1,4 @@
+from bs4 import BeautifulSoup
 from parsel import Selector
 import requests
 import time
@@ -41,7 +42,27 @@ def scrape_next_page_link(html_content):
 
 # Requisito 4
 def scrape_news(html_content):
-    """Seu código deve vir aqui"""
+    sel = Selector(text=html_content)
+    # https://scrapfly.io/blog/how-to-find-html-elements-by-class-with-beautifulsoup/
+    soup = BeautifulSoup(html_content, 'html.parser')
+    # url = sel.css("head link[rel=canonical]::attr(href)").get()
+    url = sel.css("head link[rel=canonical]::attr(href)").get()
+    # https://www.programiz.com/python-programming/methods/string/strip
+    title = sel.css("h1.entry-title::text").get().strip()
+    timestamp = sel.css("li.meta-date::text").get()
+    writer = sel.css("span.author a.url::text").get()
+    read_ti = int(soup.find('li', class_='meta-reading-time').text.strip()[:2])
+    summary = soup.find('div', class_='entry-content').find('p').text.strip()
+    category = soup.find('span', class_='label').text
+    return {
+        "url": url,
+        "title": title,
+        "timestamp": timestamp,
+        "writer": writer,
+        "reading_time": read_ti,
+        "summary": summary,
+        "category": category,
+    }
 
 
 # Requisito 5
