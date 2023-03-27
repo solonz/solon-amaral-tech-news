@@ -31,9 +31,9 @@ def search_by_date(date):
     try:
         # https://docs.python.org/3/library/datetime.html?highlight=fromisoformat#datetime.date.fromisoformat
         # https://docs.python.org/3/library/datetime.html?highlight=strftime#datetime.datetime.strftime
-        date_converted = datetime.fromisoformat(date).strftime('%d/%m/%Y')
+        date_converted = datetime.fromisoformat(date).strftime("%d/%m/%Y")
     except ValueError:
-        raise ValueError('Data inválida')
+        raise ValueError("Data inválida")
     search_criteria = {"timestamp": date_converted}
     response = []
     news = search_news(search_criteria)
@@ -44,4 +44,9 @@ def search_by_date(date):
 
 # Requisito 9
 def search_by_category(category):
-    """Seu código deve vir aqui"""
+    news = []
+    search_criteria = {"category": {"$regex": category, "$options": "i"}}
+    news_list = search_news(search_criteria)
+    for new in news_list:
+        news.append((new["title"], new["url"]))
+    return news
