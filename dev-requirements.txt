@@ -1,13 +1,53 @@
 -r requirements.txt
 
-wheel==0.37.1
+attrs==22.2.0
+beautifulsoup4==4.12.0
 black==22.3.0
+certifi==2022.12.7
+chardet==3.0.4
+click==8.1.3
+cssselect==1.2.0
 flake8==4.0.1
-pytest==7.0.1
-pytest-mock==3.5.1
-pytest-json==0.4.0
+idna==2.10
+iniconfig==2.0.0
+lxml==4.9.2
+mccabe==0.6.1
+mypy-extensions==1.0.0
+numpy==1.24.2
+packaging==23.0
+pandas==1.5.3
 parsel==1.7.0
-requests==2.24.0
+pathspec==0.11.1
+platformdirs==3.1.1
+pluggy==1.0.0
+py==1.11.0
+pycodestyle==2.8.0
+pyflakes==2.4.0
 pymongo==3.11.0
+pytest==7.0.1
+pytest-dependency==0.1.0
+pytest-json==0.4.0
+pytest-mock==3.5.1
+python-dateutil==2.8.2
 python-decouple==3.3
-git+https://github.com/betrybe/pytest-dependency
+pytz==2023.2
+requests==2.24.0
+six==1.16.0
+soupsieve==2.4
+-e git+git@github.com:tryber/sd-022-b-tech-news.git@d4c6110ea3e69107ea4984cd45d22d0a0217d28b#egg=tech_news
+tomli==2.0.1
+typing-extensions==4.5.0
+urllib3==1.25.11
+w3lib==2.1.1
+
+# wheel==0.37.1
+# black==22.3.0
+# flake8==4.0.1
+# pytest==7.0.1
+# pytest-mock==3.5.1
+# pytest-json==0.4.0
+# parsel==1.7.0
+# requests==2.24.0
+# pymongo==3.11.0
+# python-decouple==3.3
+# git+https://github.com/betrybe/pytest-dependency
